@@ -51,7 +51,7 @@ if ($response->getStatusCode() === 200) {
   foreach ($bulkResults as $results) {
     foreach ($results as $result) {
       dump($result);
-      print $result->label . "\n";
+      // print $result->label . "\n";
     }
   }
 }
