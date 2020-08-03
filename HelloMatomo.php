@@ -17,19 +17,19 @@ $bulkRequests = [
   [
     'period' => 'day',
     'date' => 'today',
-    'method' => 'Actions.getPageUrl',
-    'pageUrl' => '/fr/vente/chateau-12000-1277',
+    'method' => 'Actions.get',
+    'pageUrl' => 'pageUrl=@-1278',
   ],
   [
     'period' => 'day',
     'date' => 'today',
     'method' => 'UserCountry.getCity',
-    'segment' => 'pageUrl=@/fr/vente/chateau-12000-1277',
+    'segment' => 'pageUrl=@-1278',
   ],
 ];
 $urls = [];
 foreach ($bulkRequests as $bulkRequest) {
-  $bulkRequest['idSite'] = 2;
+  $bulkRequest['idSite'] = 1;
   $urls[] = http_build_query($bulkRequest);
 }
 
@@ -49,9 +49,9 @@ $response = $client->request(
 if ($response->getStatusCode() === 200) {
   $bulkResults = json_decode($response->getBody()->getContents());
   foreach ($bulkResults as $results) {
+    dump($bulkResults);
     foreach ($results as $result) {
       dump($result);
-      // print $result->label . "\n";
     }
   }
 }
