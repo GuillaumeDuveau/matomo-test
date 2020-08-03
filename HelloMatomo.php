@@ -16,13 +16,13 @@ $client = new Client([
 $bulkRequests = [
   [
     'period' => 'day',
-    'date' => 'today',
+    'date' => 'yesterday',
     'method' => 'Actions.get',
-    'pageUrl' => 'pageUrl=@-1278',
+    'segment' => 'pageUrl=@-1278',
   ],
   [
     'period' => 'day',
-    'date' => 'today',
+    'date' => 'yesterday',
     'method' => 'UserCountry.getCity',
     'segment' => 'pageUrl=@-1278',
   ],
