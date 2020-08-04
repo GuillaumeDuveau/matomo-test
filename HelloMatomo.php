@@ -16,15 +16,15 @@ $client = new Client([
 $bulkRequests = [
   [
     'period' => 'day',
-    'date' => 'yesterday',
+    'date' => '2020-08-01',
     'method' => 'Actions.get',
     'segment' => 'pageUrl=@-1278',
   ],
   [
     'period' => 'day',
-    'date' => 'yesterday',
-    'method' => 'UserCountry.getCity',
-    'segment' => 'pageUrl=@-1278',
+    'date' => '2020-08-01',
+    'method' => 'Actions.getPageUrl',
+    'pageUrl' => '/fr/vente/appartement-91160-1278',
   ],
 ];
 $urls = [];
@@ -48,10 +48,5 @@ $response = $client->request(
 
 if ($response->getStatusCode() === 200) {
   $bulkResults = json_decode($response->getBody()->getContents());
-  foreach ($bulkResults as $results) {
-    dump($bulkResults);
-    foreach ($results as $result) {
-      dump($result);
-    }
-  }
+  dump($bulkResults);
 }
